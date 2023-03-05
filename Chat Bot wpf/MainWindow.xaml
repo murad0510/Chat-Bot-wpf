@@ -1,0 +1,22 @@
+﻿<Window x:Class="Chat_Bot_wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Chat_Bot_wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="680" Width="600">
+    <Grid Height="634" Width="561">
+        <StackPanel Name="myStackPanel" Width="574" Background="White" Height="650" 
+                         ScrollViewer.VerticalScrollBarVisibility="Visible" 
+                         ScrollViewer.CanContentScroll="True">
+
+        </StackPanel>
+        <Canvas>
+            <!--<Image Canvas.Top="-30" gif:ImageBehavior.AnimatedSource="Images/photo1.gif"></Image>-->
+            <TextBox Name="messageTxtBox" PreviewMouseUp="TextBox_PreviewMouseUp" Canvas.Bottom="1" Canvas.Left="2" Width="500" Height="50" Background="#e6e6e6" Text="Type a message" FontSize="18" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"></TextBox>
+            <Button Name="sendMessageBtn" Click="sendMessageBtn_Click" Width="50" Height="50" Canvas.Bottom="1" Canvas.Left="500" Content="➤" FontSize="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"></Button>
+        </Canvas>
+    </Grid>
+</Window>
