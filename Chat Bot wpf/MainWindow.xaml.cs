@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -41,19 +42,53 @@ namespace Chat_Bot_wpf
 
         UserMessage userMessage;
         BotMessage botMessage;
-        static int y = 10;
-        static int x = 10;
+        static int y = 16;
+        static int x = 16;
+
+        DispatcherTimer dispatcherTimer = new DispatcherTimer();
         private void sendMessageBtn_Click(object sender, RoutedEventArgs e)
         {
             if (messageTxtBox.Text.Trim() != string.Empty && messageTxtBox.Text != "Type a message")
             {
                 userMessage = new UserMessage();
                 userMessage.Message = messageTxtBox.Text;
+                userMessage.Date = DateTime.Now.ToShortTimeString();
                 y += 25;
                 messageTxtBox.Text = String.Empty;
                 userMessage.Margin = new Thickness(0, y, 0, 0);
                 myStackPanel.Children.Add(userMessage);
 
+                Timer(sender, e);
+
+            }
+            else
+            {
+                System.Windows.MessageBox.Show("Not empty send comment!!!");
+            }
+        }
+
+        public void Timer(object sender, EventArgs e)
+        {
+
+            dispatcherTimer.Tick += DispatcherTimer_Tick;
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+            dispatcherTimer.Start();
+
+        }
+
+        static int count = 3;
+        private void DispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            if (count != 0)
+            {
+                onlineLbl.Content = "Typing . . .";
+                count -= 1;
+            }
+            else
+            {
+                dispatcherTimer.Stop();
+                count = 3;
+                onlineLbl.Content = "online";
                 Bot bot = new Bot();
                 botMessage = new BotMessage();
                 bot.loadSettings();
@@ -61,19 +96,14 @@ namespace Chat_Bot_wpf
                 bot.isAcceptingUserInput = false;
                 User user = new User("Username here", bot);
                 bot.isAcceptingUserInput = true;
-                x+= 10;
+                x += 10;
                 Request request = new Request(userMessage.Message, user, bot);
                 Result result = bot.Chat(request);
                 botMessage.BotMessag = result.Output;
+                botMessage.DateMessage = DateTime.Now.ToShortTimeString();
                 botMessage.Margin = new Thickness(0, x, 0, 0);
                 myStackPanel.Children.Add(botMessage);
             }
-            else
-            {
-                System.Windows.MessageBox.Show("Not empty send comment!!!");
-            }
-
-
         }
     }
 }

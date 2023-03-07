@@ -9,14 +9,44 @@
         Title="MainWindow" Height="680" Width="600">
     <Grid Height="634" Width="561">
         <StackPanel Name="myStackPanel" Width="574" Background="White" Height="650" 
-                         ScrollViewer.VerticalScrollBarVisibility="Visible" 
-                         ScrollViewer.CanContentScroll="True">
+                    ScrollViewer.VerticalScrollBarVisibility="Auto">
 
         </StackPanel>
         <Canvas>
             <!--<Image Canvas.Top="-30" gif:ImageBehavior.AnimatedSource="Images/photo1.gif"></Image>-->
             <TextBox Name="messageTxtBox" PreviewMouseUp="TextBox_PreviewMouseUp" Canvas.Bottom="1" Canvas.Left="2" Width="500" Height="50" Background="#e6e6e6" Text="Type a message" FontSize="18" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"></TextBox>
             <Button Name="sendMessageBtn" Click="sendMessageBtn_Click" Width="50" Height="50" Canvas.Bottom="1" Canvas.Left="500" Content="➤" FontSize="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"></Button>
+
+            <StackPanel Width="563" Height="40" Background="#ba55d3">
+                <Canvas>
+                    <Label Canvas.Left="100" Canvas.Top="-6" Content="Brother" FontSize="20"></Label>
+                    <Label Name="onlineLbl" Foreground="#e6e6fa" Canvas.Left="100" Canvas.Top="14" Content="online" FontSize="15"></Label>
+                    <Image Canvas.Top="1" Width="100" Canvas.Left="9" Height="27" Source="Images/human photo.png" Canvas.Bottom="7">
+                        <Image.RenderTransform>
+                            <ScaleTransform ScaleX="1.7" ScaleY="1.5"></ScaleTransform>
+                        </Image.RenderTransform>
+                    </Image>
+
+                    <Image Canvas.Top="1" Width="100" Canvas.Left="-34" Height="27" Source="Images/left arrow.png" Canvas.Bottom="7">
+                        <Image.RenderTransform>
+                            <ScaleTransform ScaleX="1" ScaleY="1.3"></ScaleTransform>
+                        </Image.RenderTransform>
+                    </Image>
+
+                    <Image Canvas.Top="1" Width="100" Canvas.Right="20" Height="27" Source="Images/telephone.png" Canvas.Bottom="7">
+                        <Image.RenderTransform>
+                            <ScaleTransform ScaleX="1" ScaleY="1.3"></ScaleTransform>
+                        </Image.RenderTransform>
+                    </Image>
+
+                    <Image Canvas.Top="1" Width="100" Canvas.Right="-15" Height="27" Source="Images/three dot.png" Canvas.Bottom="7">
+                        <Image.RenderTransform>
+                            <ScaleTransform ScaleX="1" ScaleY="1.3"></ScaleTransform>
+                        </Image.RenderTransform>
+                    </Image>
+                </Canvas>
+            </StackPanel>
+
         </Canvas>
     </Grid>
 </Window>

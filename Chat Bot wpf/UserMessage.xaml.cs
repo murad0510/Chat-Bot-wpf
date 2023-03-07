@@ -39,5 +39,11 @@ namespace Chat_Bot_wpf
             get { return messageLbl.Content.ToString(); }
             set { messageLbl.Content = value; }
         }
+        public string Date
+        {
+            get { return DateTimeLbl.Content.ToString(); }
+            set { DateTimeLbl.Content = value; }
+        }
+
     }
 }

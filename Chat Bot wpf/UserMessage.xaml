@@ -8,13 +8,15 @@
              d:DesignHeight="40" d:DesignWidth="650" Background="White">
     <Grid>
         <Canvas>
-            <Label Name="messageLbl" Background=" #ffccff" Canvas.Left="470">
+            <Label Name="messageLbl" Background=" #ffccff" Canvas.Left="430" Canvas.Top="3">
                 <Label.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="40"/>
                     </Style>
                 </Label.Resources>
+
             </Label>
+            <Label Name="DateTimeLbl" Background="White" Foreground="Gray" Canvas.Left="430"  Margin="0,29,0,0"></Label>
         </Canvas>
     </Grid>
 </UserControl>

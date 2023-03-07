@@ -30,5 +30,13 @@ namespace Chat_Bot_wpf
             set { Message.Content = value; }
         }
 
+
+        public string DateMessage
+        {
+            get { return DateTimeLbl.Content.ToString(); }
+            set { DateTimeLbl.Content = value; }
+        }
+
+
     }
 }
