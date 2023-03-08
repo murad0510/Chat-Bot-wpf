@@ -45,7 +45,7 @@ namespace Chat_Bot_wpf
         static int y = 16;
         static int x = 16;
 
-        DispatcherTimer dispatcherTimer = new DispatcherTimer();
+        DispatcherTimer dispatcherTimer;
         private void sendMessageBtn_Click(object sender, RoutedEventArgs e)
         {
             if (messageTxtBox.Text.Trim() != string.Empty && messageTxtBox.Text != "Type a message")
@@ -59,7 +59,6 @@ namespace Chat_Bot_wpf
                 myStackPanel.Children.Add(userMessage);
 
                 Timer(sender, e);
-
             }
             else
             {
@@ -69,11 +68,10 @@ namespace Chat_Bot_wpf
 
         public void Timer(object sender, EventArgs e)
         {
-
+            dispatcherTimer = new DispatcherTimer();
             dispatcherTimer.Tick += DispatcherTimer_Tick;
             dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
             dispatcherTimer.Start();
-
         }
 
         static int count = 3;
